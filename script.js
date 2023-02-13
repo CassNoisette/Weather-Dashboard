@@ -8,6 +8,13 @@ var searches = document.querySelector("searches");
 //Declare a variable to store the searched city
 var city="";
 
+
+function getInfo(){
+    const newCity = document.getElementById("cityInput");
+    const cityName= document.getElementById("cityName");
+
+}
+
 // create a button
 function addBtn(city,container){
     var btn = document.createElement("button");
@@ -84,100 +91,130 @@ function saveSearch(){
     localStorage.setItem("recentSearches", JSON.stringify(tempArray));
 }
 
+// Solution 1
+// // search for city weather
+// function searchCity (city, location){
+//     var currentCity = document.createElement('p')
+//     currentCity.textContent = city;
+//     location.appendChild(currentCity)
+// }
 
-// search for city weather
-function searchCity (city, location){
-    var currentCity = document.createElement('p')
-    currentCity.textContent = city;
-    location.appendChild(currentCity)
-}
-
-// create data elements
-function createData(){
-    var div = document.createElement("div");
-    div.setAttribute("id", "weatherData");
-var date = document.createElement ("p");
-    date.textContent = date;
-    div.appendChild(date);
+// // create data elements
+// function createData(){
+//     var div = document.createElement("div");
+//     div.setAttribute("id", "weatherData");
+// var date = document.createElement ("p");
+//     date.textContent = date;
+//     div.appendChild(date);
 
 
-    var tempEl = document.createElement("p");
-    tempEl.textContent = "Temperature :" + temp
-    div.appendChild(tempEl);
+//     var tempEl = document.createElement("p");
+//     tempEl.textContent = "Temperature :" + temp
+//     div.appendChild(tempEl);
 
-    var humidityEl = document.createElement("p");
-   humidityEl.textContent = "Humidity :" + humidity
-    div.appendChild(humidityEl);
+//     var humidityEl = document.createElement("p");
+//    humidityEl.textContent = "Humidity :" + humidity
+//     div.appendChild(humidityEl);
 
-    var windEl = document.createElement("p");
-    windEl.textContent = "Wind :" + wind
-    div.appendChild(windEl);
+//     var windEl = document.createElement("p");
+//     windEl.textContent = "Wind :" + wind
+//     div.appendChild(windEl);
 
-    section.appendChild(div);
-}
+//     section.appendChild(div);
+// }
 
-// fetch api and data
-function apiGrab(){
-    reset();
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchInput.value}&appid=8d2f27bdcab4692704000178cb2760e4&units=imperial`
-    )
-.then(function(response){
-    return response.json();
-})
-// .then (function (data){
-//     searchCity(data[0].name, currentTemp);
-//     saveSearch(data[0].name, searches);
+
+// Solution 1 
+// // fetch api and data
+// function apiGrab(){
+//     reset();
+//     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchInput.value}&appid=8d2f27bdcab4692704000178cb2760e4&units=imperial`
+//     )
+// .then(function(response){
+//     return response.json();
 // })
+// // .then (function (data){
+// //     searchCity(data[0].name, currentTemp);
+// //     saveSearch(data[0].name, searches);
+// // })
 
-.then (function(data){
-    console.log(data);
-    var weatherData = {
-        date: data.daily[0].dt,
-        temp = data.list[0].main.temp
-        humidity = data.list[0].main.humidity
-        wind = data.list[0].wind.speed
-        icon = data.list[0].main.icon
-        description = data.list[0].weather[0].description
-    }
-})
-}
+// .then (function(data){
+//     console.log(data);
+//     var weatherData = {
+//         date: data.daily[0].dt,
+//         temp: data.list[0].main.temp,
+//         humidity : data.list[0].main.humidity,
+//         wind : data.list[0].wind.speed,
+//         icon : data.list[0].main.icon,
+//         description : data.list[0].weather[0].description,
+//     }
+// })
+// }
 
 
-searches.onClick = function (event){
-    var clickBtn = event.target
-    if (clickBtn.classList.contains("recent")){
-        city.value = clickBtn.textContent;
-        city.setAttribute("placeholder", clickBtn.textContent)
-        apiGrab();
-    }
-}
+// searches.onClick = function(event){
+//     var clickBtn = event.target
+//     if (clickBtn.classList.contains("recent")){
+//         city.value = clickBtn.textContent;
+//         city.setAttribute("placeholder", clickBtn.textContent)
+//         apiGrab();
+//     }
+// }
 
 if (isLocalStorage()){
     displayResults(searches)
 }
 
-searchButton.addEventListener("click", apiGrab);
+// searchButton.addEventListener("click", apiGrab);
 
-//         .then(response => response.json())
-//       .then(function(data){
+
+
+
+// Solution 2 
+
+let iconEl = document.querySelector("#temp-icon");
+let tempEl = document.querySelector("#temp");
+let humidityEl = document.querySelector("#humidity");
+let iconfile;
+let searchInput=document.getElementById("search-input");
+const searchBtn=document.getElementById("search-button");
+let weatherContainer = document.getElementById("weatherContainer")
+
+
+var fetchButton = document.getElementById('search-button');
+searchBtn.addEventListener('click', getWeather);
+
+function getWeather(){
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchInput.value}&appid=8d2f27bdcab4692704000178cb2760e4&units=imperial`
+    )
+        .then(response => response.json())
+      .then(function(data){
        
-//         fiveDays(data.list);
-//         console.log(searchInput.value);
+        fiveDays(data.list);
+        console.log(searchInput.value);
         
-// var temp = data.list[0].main.temp;
-// var humidity = data.list[0].main.humidity;
-// var wind = data.list[0].wind.speed;
+var temp = data.list[0].main.temp;
+var humidity = data.list[0].main.humidity;
+var wind = data.list[0].wind.speed;
 
-// tempEl.textContent="";
-// var temperatureEl = document.createElement("p");
-// temperatureEl.textContent = `temp: ${temp} degrees`;
-// tempEl.appendChild(temperatureEl);
+tempEl.textContent="";
+var temperatureEl = document.createElement("p");
+temperatureEl.textContent = `temp: ${temp} degrees`;
+tempEl.appendChild(temperatureEl);
 
 
-// humidityEl.textContent="";
-// var HumidityEl = document.createElement("p");
-// HumidityEl.textContent = `humidity: ${humidity} degrees`;
-// HumidityEl.append(HumidityEl);
+humidityEl.textContent="";
+var humidityEl = document.createElement("p");
+humidityEl.textContent = `humidity: ${humidity} degrees`;
+HumidityEl.append(humidityEl);
 
-//         })
-    
+windEl.textContent="";
+var windEl = document.createElement("p");
+windEl.textContent = `wind: ${wind} degrees`;
+windEl.append(windEl);
+
+        })
+    }
+
+
+    searchButton.addEventListener("click", getWeather);

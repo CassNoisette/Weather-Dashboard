@@ -73,6 +73,19 @@ main {
     transition: all 0.4 ease 0s;
 }
 
+#search-button {
+    color:rgb(81, 166, 240);
+    text-transform: uppercase;
+    text-decoration: none;
+    background: rgb(210, 222, 207);
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 11px;
+    border:2px solid burlywood;
+    display: inline-block;
+    transition: all 0.4 ease 0s;
+}
+
 #button:hover{
     color:aliceblue;
     background: peachpuff;
