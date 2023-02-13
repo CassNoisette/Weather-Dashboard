@@ -86,7 +86,7 @@ main {
     transition: all 0.4 ease 0s;
 }
 
-#button:hover{
+#search-button:hover{
     color:aliceblue;
     background: peachpuff;
     border-color: peachpuff;
@@ -109,7 +109,20 @@ input {
     border:2px solid burlywood;
 }
 
-
+#search-input {
+    display: flex;
+    justify-content: center;
+    width: 260px;
+    overflow: hidden;
+    font-size: 20px;
+    margin: 8px 0;
+    border-bottom: 3px solid salmon;
+    color:black;
+    outline: none;
+    background: none;
+    border-radius: 5px;
+    border:2px solid burlywood;
+}
 
 .container {
     display: flex;
