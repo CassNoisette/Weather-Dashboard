@@ -206,7 +206,7 @@ tempEl.appendChild(temperatureEl);
 humidityEl.textContent="";
 var humidityEl = document.createElement("p");
 humidityEl.textContent = `humidity: ${humidity} degrees`;
-HumidityEl.append(humidityEl);
+humidityEl.append(humidityEl);
 
 windEl.textContent="";
 var windEl = document.createElement("p");
@@ -215,6 +215,30 @@ windEl.append(windEl);
 
         })
     }
+    function fiveDays(weather){
 
+
+        for (let i=0; i<weather.length; i = i+8){
+        console.log(weather[i])
+        
+        // var $li = $("<li>");
+        // $h1.text(weather[i].main.temp);
+        
+        
+        var fiveTemp = weather[i].main.temp;
+        var fiveTempEl = document.createElement("p");
+        fiveTempEl.textContent = fiveTemp;
+        weatherContainer.appendChild(fiveTempEl);
+        
+        var fiveHumidity = weather[i].main.humidity;
+        var fiveHumidityEl = document.createElement("p");
+        fiveHumidityEl.textContent = fiveHumidity;
+        weatherContainer.appendChild(fiveHumidityEl);
+        
+        var fiveWind = weather[i].wind.speed;
+        }
+        
+        
+            }
 
     searchButton.addEventListener("click", getWeather);
