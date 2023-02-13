@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" </head>
+
+<body>
+    <header>
+        Weather Dashboard
+    </header>
+    <div class="container">
+
+
+        
+
+<section>
+    <h1>5 days Weather Forecast</h1>
+    <!-- <p id="input-container"> City: <input type="text" id="city-input></p> -->
+    <div id="search-form">
+        <input type="search" placeholder="Enter City Name" id="search-input" required autocomplete="on" />
+        <br>
+        <button id="search-button">Search</button>
+        <!-- <h2 id="cityName">---Philadelphia---</h2> -->
+    </div>
+</section>
+
+
+        <main id="app-container">
+            <div id="location">
+                <p>---------</p>
+            </div>
+            <div id="temp" >
+                <img id="temp-icon" src="">
+                <p id="humidity"><span>- - - - </span></p>
+            </div>
+<!-- <div id="humidity"></div> -->
+            <div id="climate"><p>---------</p></div>
+        </main>
+
+
+        <div id = "weatherContainer">
+            <div id="iconsContainer">    
+                <div class = "icons">
+                    <p class="weather" id="day1"></p>
+                    <!-- <p class="minValues" id="day1Min">Loading...</p>
+                    <p class="maxValues" id="day1Max">Loading...</p> -->
+                </div>
+            </div>
+            </div>
+
+
+            <!-- <h1>Weather Dashboard</h1>
+    <section id="search-wrapper">
+        <section id="search-container">
+            <h2>Search For a City</h2>
+            <input id="city" type="text" placeholder="City Name" aria-label="City Name">
+            <button id="search-button" type="button">Search</button>
+        </section>
+        <section id="recent-searches"></section>
+    </section>
+    <section id="weather-wrapper">
+        <section id="current-weather"></section>
+        <section id="five-day"></section>
+    </section>
+    <script src="./Assets/javascript/script.js"></script> -->
+
+        <script src="script.js"></script>
+</body>
+
+</html>
