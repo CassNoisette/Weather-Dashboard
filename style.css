@@ -20,6 +20,11 @@ body {
     height: 100vh;
 }
 
+h2 {
+    color : peachpuff;
+    font-size: 35px;
+}
+
 #search-form {
     display: flex;
     justify-content:flex-start;
@@ -55,7 +60,7 @@ main {
     box-shadow: 10px 10px 20px 10px rgba(112, 102, 102, 0.2);
 }
 
-#search-button {
+#button {
     color:rgb(81, 166, 240);
     text-transform: uppercase;
     text-decoration: none;
@@ -68,7 +73,7 @@ main {
     transition: all 0.4 ease 0s;
 }
 
-#search-button:hover{
+#button:hover{
     color:aliceblue;
     background: peachpuff;
     border-color: peachpuff;
@@ -76,7 +81,9 @@ main {
 }
 
 
-#search-input {
+input {
+    display: flex;
+    justify-content: center;
     width: 260px;
     overflow: hidden;
     font-size: 20px;
@@ -85,39 +92,13 @@ main {
     color:black;
     outline: none;
     background: none;
+    border-radius: 5px;
+    border:2px solid burlywood;
 }
-
-
-input {
-border:none;
-}
-
-
-
-
-
-
-
-
 
 
 
 .container {
-    padding: 20px 70px;
-    color:bisque
-}
-
-.currentinfo {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.date-container{
-    font-weight : 100,
-}
-
-#app-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -131,20 +112,6 @@ main {
 }
 
 
-
-/* HTML {
-    background-color: darkcyan;
-}
-
-h1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1%;
-    background-color: #13293d;
-    color: #fff;
-}
-
 .recent {
     color: aliceblue;
     display: flex;
@@ -153,39 +120,16 @@ h1 {
     background-color: navy
 }
 
-#search-button {
-    display: flex;
-    justify-content: center;
-    padding: 2%;
-    background-color: goldenrod;
-    color: #fff;
-}
 
-#search-container {
-    display: inline-flex;
-    justify-content: center;
-}
-
-input {
-    display: flex;
-    justify-content: center;
-    padding: 2%;
-    background-color: #13293d;
-    color: #fff;
-}
-
-#recent-searches {
+#searches {
     display: flex;
     justify-content: flex-start;
     color: #fff;
 }
 
-h2 {
-    margin: 2% 0;
-    font-size: 180%;
-}
 
-#five-day {
+
+#five-days {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -201,4 +145,4 @@ h2 {
     padding: 1%;
     background-color: #13293d;
     color: #fff;
-} */
+} 
